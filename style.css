@@ -1,0 +1,168 @@
+:root {
+  --bg: #1a1025;
+  --card: rgba(255, 255, 255, 0.06);
+  --accent: #ff8fab;
+  --accent-2: #ffc2d1;
+  --text: #f5e6f0;
+  --muted: #b8a0b5;
+  --font: "Georgia", "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #2d1b3d 0%, var(--bg) 70%);
+  color: var(--text);
+  font-family: var(--font);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Звёзды на фоне */
+.stars {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.star {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.4); }
+}
+
+/* Карточка */
+.card {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  width: 100%;
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.greeting {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 400;
+  margin-bottom: 40px;
+  letter-spacing: 0.5px;
+}
+.greeting span { color: var(--accent); }
+
+.label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* Обратный отсчёт */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: clamp(8px, 3vw, 24px);
+  margin-bottom: 48px;
+}
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+.unit span {
+  font-size: clamp(28px, 6vw, 44px);
+  font-weight: 700;
+  color: var(--accent-2);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.unit small {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Благодарность */
+.gratitude-section { margin-bottom: 40px; }
+.gratitude {
+  font-size: clamp(18px, 3vw, 22px);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text);
+  min-height: 3.5em;
+  transition: opacity 0.5s ease;
+}
+.gratitude.fade { opacity: 0; }
+.gratitude-counter {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Кнопка «Обнять» */
+.hug-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #1a1025;
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 24px rgba(255, 143, 171, 0.35);
+}
+.hug-btn:hover { transform: translateY(-2px) scale(1.03); }
+.hug-btn:active { transform: scale(0.97); }
+
+/* Подпись */
+.signature {
+  margin-top: 32px;
+  font-size: 15px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Конфетти */
+.confetti-container {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+.confetti {
+  position: absolute;
+  width: 10px; height: 10px;
+  opacity: 0;
+  animation: fall 3s ease-in forwards;
+}
+@keyframes fall {
+  0% { opacity: 1; transform: translateY(-100vh) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}

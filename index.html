@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Для мамы ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <main class="card">
+    <h1 class="greeting">Привет, <span id="momName">Мама</span>!</h1>
+
+    <section class="countdown-section">
+      <p class="label">До твоего следующего дня рождения</p>
+      <div class="countdown" id="countdown">
+        <div class="unit"><span id="days">--</span><small>дней</small></div>
+        <div class="unit"><span id="hours">--</span><small>часов</small></div>
+        <div class="unit"><span id="minutes">--</span><small>минут</small></div>
+        <div class="unit"><span id="seconds">--</span><small>секунд</small></div>
+      </div>
+    </section>
+
+    <section class="gratitude-section">
+      <p class="label">Сегодня я благодарю тебя за…</p>
+      <blockquote class="gratitude" id="gratitude">Загрузка…</blockquote>
+      <p class="gratitude-counter" id="counter"></p>
+    </section>
+
+    <button class="hug-btn" id="hugBtn">Обнять 🤗</button>
+
+    <footer class="signature" id="signature"></footer>
+  </main>
+
+  <div class="confetti-container" id="confetti"></div>
+
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
