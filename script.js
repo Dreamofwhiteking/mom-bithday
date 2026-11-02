@@ -60,6 +60,29 @@ window.addEventListener('error', function(e) {
         document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
       }
     }
+        // --- 3.5 Проверка на День Рождения ---
+    function checkBirthday() {
+      const now = new Date();
+      // Получаем сегодняшнюю дату в формате ГГГГ-ММ-ДД
+      const todayStr = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+      
+      // Берем месяц и день из конфига (отрезаем год)
+      const bdayMonthDay = CONFIG.birthday.substring(5); // получится "11-02"
+      const todayMonthDay = todayStr.substring(5); // получится текущий месяц-день
+
+      // Если месяц и день совпадают — показываем поздравление
+      if (bdayMonthDay === todayMonthDay) {
+        const wishEl = document.getElementById("birthdayWish");
+        if (wishEl) {
+          wishEl.style.display = "block";
+          // Делаем кнопку "Обнять" еще более праздничной
+          const hugBtn = document.getElementById("hugBtn");
+          if (hugBtn) hugBtn.innerHTML = "Крепко обнять! 🎁🎉";
+        }
+      }
+    }
+    
+    checkBirthday();
     
     updateCountdown();
     setInterval(updateCountdown, 1000);
