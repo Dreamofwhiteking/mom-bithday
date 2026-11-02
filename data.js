@@ -52,10 +52,9 @@ function expandGratitudes(arr, target = 365) {
   
   let result = [...arr];
   let i = 0;
-  let attempts = 0; // Счётчик попыток
-  const maxAttempts = 5000; // Ограничение, чтобы не зависнуть навсегда
+  let attempts = 0;
+  const maxAttempts = 5000;
 
-  // Добавляем проверку attempts < maxAttempts
   while (result.length < target && attempts < maxAttempts) {
     const t = templates[i % templates.length];
     const phrase = t
@@ -72,4 +71,5 @@ function expandGratitudes(arr, target = 365) {
   return result.slice(0, target);
 }
 
+// Эта строка создает переменную, которую ищет script.js
 const ALL_GRATITUDES = expandGratitudes(GRATITUDES, 365);
