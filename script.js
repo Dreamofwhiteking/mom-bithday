@@ -1,5 +1,3 @@
-// script.js
-document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:50px;'>Скрипт загрузился!</h1>";
 window.addEventListener('error', function(e) {
   // Если произошла ошибка, покажем её на экране
   document.body.innerHTML = `
